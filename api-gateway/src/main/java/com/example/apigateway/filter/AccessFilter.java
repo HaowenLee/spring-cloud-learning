@@ -29,7 +29,7 @@ public class AccessFilter extends ZuulFilter {
         HttpServletRequest request = ctx.getRequest();
 
         Object accessToken = request.getParameter("accessToken");
-        if (accessToken == null) {
+        if (accessToken != null) {
             ctx.setSendZuulResponse(false);
             ctx.setResponseStatusCode(401);
             return null;
